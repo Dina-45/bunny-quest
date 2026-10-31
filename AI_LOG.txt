@@ -12,3 +12,6 @@ AI chat used for learning only. No AI agents wrote code in the project.
    Fix: scale 1, anchors in the center, Preserve Aspect. I resized the panel and buttons myself.
 5. Asked how to create a branch, commit, push and open a pull request from the terminal.
    I ran the git commands myself.
+
+6. Generated menu panels and buttons (PAUSED panel, RESUME / RESTART / MENU buttons) with ChatGPT.
+7. Music: [write here which tool made it and how Claude helped].
