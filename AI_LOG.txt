@@ -1,0 +1,14 @@
+AI LOG - Bunny Quest (Assignment 8-9)
+
+AI chat used for learning only. No AI agents wrote code in the project.
+
+1. Asked how to set up a SafeArea panel for notch phones.
+   Used: the idea of a script that applies Screen.safeArea to anchors. I added it to the HUD myself.
+2. Asked how to make the pause menu stop time.
+   Used: the Time.timeScale = 0 idea. I wrote the PauseMenu script with Resume, Restart, Menu and tested it.
+3. Asked why the pause button was cut off on 4:3.
+   Fix: anchor and pivot top-right, scale 1, size 200x200. I set the values in the Inspector.
+4. Asked why the pause panel looked narrow.
+   Fix: scale 1, anchors in the center, Preserve Aspect. I resized the panel and buttons myself.
+5. Asked how to create a branch, commit, push and open a pull request from the terminal.
+   I ran the git commands myself.
