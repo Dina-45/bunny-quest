@@ -5,6 +5,7 @@ public class Fireball : MonoBehaviour
     public Vector2 direction = Vector2.left;
     public float speed = 5f;
     public int damage = 1;
+    public LayerMask groundMask;   // земля и стены гасят шар
 
     void Start() { Destroy(gameObject, 6f); }
 
@@ -15,8 +16,14 @@ public class Fireball : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Player")) return;
-        other.GetComponent<Health>().TakeDamage(damage); // имя метода из твоего Health.cs
-        Destroy(gameObject);
+        if (other.CompareTag("Player"))
+        {
+            if (other.TryGetComponent(out Health h)) h.TakeDamage(damage);
+            Destroy(gameObject);
+            return;
+        }
+
+        if (((1 << other.gameObject.layer) & groundMask) != 0)
+            Destroy(gameObject);
     }
 }
