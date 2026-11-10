@@ -72,7 +72,7 @@ public class PatrollerEnemy : EnemyBase
         {
             state = State.Windup;
             timer = windupTime;
-            Flash(Color.red);              // предупреждение
+            Flash(new Color(0.35f, 0.35f, 0.35f));            
         }
     }
 
