@@ -1,4 +1,3 @@
-
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,6 +5,8 @@ using UnityEngine.SceneManagement;
 public class LevelExit : MonoBehaviour
 {
     public AudioClip winClip;
+    public string nextSceneName = "";   // пусто = следующая сцена по номеру
+
     bool isExiting;
 
     void OnTriggerEnter2D(Collider2D other)
@@ -35,7 +36,14 @@ public class LevelExit : MonoBehaviour
             Destroy(audioObject);
         }
 
-        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-        SceneManager.LoadScene(nextSceneIndex);
+        if (!string.IsNullOrEmpty(nextSceneName))
+        {
+            SceneManager.LoadScene(nextSceneName);
+        }
+        else
+        {
+            int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+            SceneManager.LoadScene(nextSceneIndex);
+        }
     }
 }
