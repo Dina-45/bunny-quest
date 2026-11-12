@@ -3,8 +3,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 5f;
-    public float jumpForce = 12f;
+    public PlayerStats stats;
     public AudioClip jumpClip;
 
     Rigidbody2D rb;
@@ -29,14 +28,14 @@ public class PlayerController : MonoBehaviour
     {
         if (!isGrounded) return;
 
-        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, stats.jumpForce);
         if (jumpClip != null)
             AudioSource.PlayClipAtPoint(jumpClip, transform.position);
     }
 
     void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(moveInput.x * speed, rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(moveInput.x * stats.moveSpeed, rb.linearVelocity.y);
 
         if (moveInput.x != 0)
             sr.flipX = moveInput.x < 0;

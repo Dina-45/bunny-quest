@@ -4,18 +4,31 @@ using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
-    public int maxHp = 3;
-    public int hp = 3;
+    public PlayerStats stats;
     public AudioClip hurtClip;
     public AudioClip healClip;
+
+    [HideInInspector] public int maxHp;
+    [HideInInspector] public int hp;
 
     bool invincible;
     Renderer[] renderers;
     AudioSource src;
 
+    void Awake()
+    {
+        if (stats == null)
+        {
+            Debug.LogError("Health: assign PlayerStats on " + name, this);
+            return;
+        }
+        maxHp = stats.maxHealth;
+        hp = maxHp;
+    }
+
     void Start()
     {
-        renderers = GetComponentsInChildren<Renderer>();  
+        renderers = GetComponentsInChildren<Renderer>();
         src = GetComponent<AudioSource>();
     }
 
@@ -39,10 +52,10 @@ public class Health : MonoBehaviour
     IEnumerator Invincibility()
     {
         invincible = true;
-        for (int i = 0; i < 10; i++)                
+        for (int i = 0; i < stats.invincibilityFlashes; i++)
         {
             foreach (var r in renderers) r.enabled = !r.enabled;
-            yield return new WaitForSeconds(0.2f);  
+            yield return new WaitForSeconds(stats.flashInterval);
         }
         foreach (var r in renderers) r.enabled = true;
         invincible = false;
