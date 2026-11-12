@@ -12,5 +12,5 @@ Assignment 10 (three enemy types). I lead, the AI helps. AI chat used: Claude. I
 - 2026-11-09  Charger hung in the air and could not reach the player. Asked for a fix: it now locks the player's position during the 0.7 s windup, dives there, then flies back to its place.
 - 2026-11-10  Claude suggested a yellow warning flash for the Patroller. It did not work, because the tint multiplies the red sprite. Switched to a dark grey flash.
 - 2026-11-10  Player bullets left the screen too fast. Speed 10 -> 5, lifetime 2 -> 2.5.
-- 2026-11-10  Playtest 1 (before tuning), iPhone: Daniyar needed 6 tries, the target is 2-4. After it I enlarged the joystick background (StickBG) from [old] to [new], because it was too small to use with a thumb, and raised the player speed 4 -> 5.
+- 2026-11-10  Playtest 1 (before tuning), iPhone: Daniyar needed 6 tries, the target is 2-4. After it I enlarged the joystick background (StickBG) from [300] to [350], because it was too small to use with a thumb, and raised the player speed 4 -> 5.
 - 2026-11-10  Playtest 2 (after tuning), iPhone: Ilyas finished in 3 tries, inside the 2-4 target.
