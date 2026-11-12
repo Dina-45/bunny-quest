@@ -3,11 +3,12 @@ using UnityEngine;
 public class Fireball : MonoBehaviour
 {
     public Vector2 direction = Vector2.left;
-    public float speed = 5f;
-    public int damage = 1;
-    public LayerMask groundMask;   // земля и стены гасят шар
+    public float speed;
+    public int damage;
+    public float lifetime;
+    public LayerMask groundMask;
 
-    void Start() { Destroy(gameObject, 6f); }
+    void Start() { Destroy(gameObject, lifetime); }
 
     void Update()
     {

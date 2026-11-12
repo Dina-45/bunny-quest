@@ -5,16 +5,10 @@ public class ChargerEnemy : EnemyBase
     enum State { Idle, Windup, Charge, Recover }
     State state = State.Idle;
 
-    [Header("Attack")]
-    public float windupTime = 0.7f;
-    public float chargeSpeed = 7f;
-    public float chargeDistance = 7f;
-    public float recoverTime = 1.5f;
-    public float hitRadius = 0.7f;
-    public int damage = 1;
+    public ChargerStats stats;
+    protected override EnemyStats BaseStats => stats;
 
-    [Header("Return")]
-    public float returnSpeed = 3f;      // после атаки возвращается на своё место
+    const float HomeTolerance = 0.05f;   // техническая погрешность, не баланс
 
     Vector3 start;
     Vector3 chargeStart;
@@ -48,11 +42,10 @@ public class ChargerEnemy : EnemyBase
 
         if (CanSeePlayer())
         {
-            // цель запоминается сейчас: пока враг краснеет, можно отойти
             chargeDir = ((Vector2)(player.position - transform.position)).normalized;
             state = State.Windup;
-            timer = windupTime;
-            Flash(Color.red);               // предупреждение
+            timer = stats.windupTime;
+            Flash(Color.red);
         }
     }
 
@@ -68,24 +61,24 @@ public class ChargerEnemy : EnemyBase
 
     void DoCharge()
     {
-        transform.position += (Vector3)(chargeDir * chargeSpeed * Time.deltaTime);
+        transform.position += (Vector3)(chargeDir * stats.chargeSpeed * Time.deltaTime);
 
         if (!hitDone && playerHealth != null &&
-            Vector2.Distance(player.position, transform.position) <= hitRadius)
+            Vector2.Distance(player.position, transform.position) <= stats.hitRadius)
         {
-            playerHealth.TakeDamage(damage);
+            playerHealth.TakeDamage(stats.damage);
             hitDone = true;
         }
 
         bool wallAhead = Physics2D.Raycast(
-            transform.position, chargeDir, 0.6f, obstacleMask);
-        bool tooFar = Vector2.Distance(transform.position, chargeStart) >= chargeDistance;
+            transform.position, chargeDir, stats.wallCheckDistance, obstacleMask);
+        bool tooFar = Vector2.Distance(transform.position, chargeStart) >= stats.chargeDistance;
 
         if (wallAhead || tooFar)
         {
             Flash(Color.white);
             state = State.Recover;
-            timer = recoverTime;
+            timer = stats.recoverTime;
         }
     }
 
@@ -93,9 +86,9 @@ public class ChargerEnemy : EnemyBase
     {
         timer -= Time.deltaTime;
         transform.position = Vector3.MoveTowards(
-            transform.position, start, returnSpeed * Time.deltaTime);
+            transform.position, start, stats.returnSpeed * Time.deltaTime);
 
-        bool home = Vector3.Distance(transform.position, start) < 0.05f;
+        bool home = Vector3.Distance(transform.position, start) < HomeTolerance;
         if (timer <= 0f && home) state = State.Idle;
     }
 }

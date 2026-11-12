@@ -752,7 +752,7 @@ GameObject:
   - component: {fileID: 198963513}
   - component: {fileID: 198963512}
   m_Layer: 0
-  m_Name: Enemy_Shooter (1)
+  m_Name: Charger Enemy2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -770,18 +770,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b46fddce6db574381b11aa6668459049, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChargerEnemy
-  sightRange: 6
-  sightAngle: 180
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
-  windupTime: 0.7
-  chargeSpeed: 7
-  chargeDistance: 7
-  recoverTime: 1.5
-  hitRadius: 0.7
-  damage: 1
-  returnSpeed: 3
+  stats: {fileID: 11400000, guid: 052f237c2b2f140cc881c8c03eddacb2, type: 2}
 --- !u!61 &198963513
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1041,7 +1033,7 @@ GameObject:
   - component: {fileID: 262765858}
   - component: {fileID: 262765861}
   m_Layer: 0
-  m_Name: Enemy_Charger
+  m_Name: Shooter Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1180,21 +1172,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 507f7bf0273bc4899add05be53460b04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShooterEnemy
-  sightRange: 8
-  sightAngle: 180
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
-  moveSpeed: 1.5
-  minDistance: 2.5
-  maxDistance: 5
-  leash: 4
+  stats: {fileID: 11400000, guid: 019faff3245404b65ad66aa5145e6a8b, type: 2}
   fireballPrefab: {fileID: 5125707379141082606, guid: d277cb4eab6a2496b9e3cb863d8f825d, type: 3}
   shootClip: {fileID: 8300000, guid: 2f78d04849d1a4cd18a5b03e1db533d5, type: 3}
-  aimTime: 0.6
-  cooldownTime: 1.6
-  fireballSpeed: 4
-  damage: 1
 --- !u!1 &278348477
 GameObject:
   m_ObjectHideFlags: 0
@@ -2078,7 +2061,7 @@ GameObject:
   - component: {fileID: 564465373}
   - component: {fileID: 564465376}
   m_Layer: 0
-  m_Name: Enemy_Shooter
+  m_Name: Charger Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2217,18 +2200,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b46fddce6db574381b11aa6668459049, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChargerEnemy
-  sightRange: 6
-  sightAngle: 180
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
-  windupTime: 0.7
-  chargeSpeed: 7
-  chargeDistance: 7
-  recoverTime: 1.5
-  hitRadius: 0.7
-  damage: 1
-  returnSpeed: 3
+  stats: {fileID: 11400000, guid: 052f237c2b2f140cc881c8c03eddacb2, type: 2}
 --- !u!1 &583819914
 GameObject:
   m_ObjectHideFlags: 0
@@ -2935,7 +2910,7 @@ GameObject:
   - component: {fileID: 683263562}
   - component: {fileID: 683263561}
   m_Layer: 0
-  m_Name: Enemy1
+  m_Name: Patroller Enemy 2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3074,20 +3049,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0798657ff499c40e3b2763abcc8dff2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PatrollerEnemy
-  sightRange: 6
-  sightAngle: 120
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
-  patrolSpeed: 1.5
-  chaseSpeed: 3
-  patrolDistance: 3
-  leash: 4.5
-  attackRange: 1.4
-  windupTime: 0.35
-  cooldownTime: 1
-  damage: 1
-  chaseAnimSpeed: 1.5
+  stats: {fileID: 11400000, guid: a4f2d94b6448b422aa792b6d061fe6ae, type: 2}
 --- !u!95 &683263562
 Animator:
   serializedVersion: 7
@@ -4059,7 +4024,7 @@ GameObject:
   - component: {fileID: 1402606308}
   - component: {fileID: 1402606309}
   m_Layer: 0
-  m_Name: Enemy2
+  m_Name: Patroller Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4198,20 +4163,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0798657ff499c40e3b2763abcc8dff2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Patroller
-  sightRange: 6
-  sightAngle: 120
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
-  patrolSpeed: 1.5
-  chaseSpeed: 3
-  patrolDistance: 3
-  leash: 4.5
-  attackRange: 1.4
-  windupTime: 0.35
-  cooldownTime: 1
-  damage: 1
-  chaseAnimSpeed: 1.5
+  stats: {fileID: 11400000, guid: a4f2d94b6448b422aa792b6d061fe6ae, type: 2}
 --- !u!95 &1402606309
 Animator:
   serializedVersion: 7

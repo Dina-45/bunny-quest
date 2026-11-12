@@ -173,6 +173,7 @@ MonoBehaviour:
   direction: {x: -1, y: 0}
   speed: 5
   damage: 1
+  lifetime: 6
   groundMask:
     serializedVersion: 2
     m_Bits: 64

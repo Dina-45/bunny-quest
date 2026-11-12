@@ -5,20 +5,8 @@ public class PatrollerEnemy : EnemyBase
     enum State { Patrol, Chase, Windup, Cooldown }
     State state = State.Patrol;
 
-    [Header("Movement")]
-    public float patrolSpeed = 1.5f;
-    public float chaseSpeed = 3f;
-    public float patrolDistance = 3f;
-    public float leash = 4.5f;            // дальше этого от старта не уходит
-
-    [Header("Attack")]
-    public float attackRange = 1.2f;
-    public float windupTime = 0.5f;
-    public float cooldownTime = 1.5f;
-    public int damage = 1;
-
-    [Header("Animation")]
-    public float chaseAnimSpeed = 1.5f;
+    public PatrollerStats stats;
+    protected override EnemyStats BaseStats => stats;
 
     Vector3 start;
     float timer;
@@ -34,7 +22,7 @@ public class PatrollerEnemy : EnemyBase
         if (player == null) return;
 
         SetAnimSpeed(state == State.Windup || state == State.Cooldown ? 0f
-                   : state == State.Chase ? chaseAnimSpeed : 1f);
+                   : state == State.Chase ? stats.chaseAnimSpeed : 1f);
 
         switch (state)
         {
@@ -48,15 +36,15 @@ public class PatrollerEnemy : EnemyBase
     void Move(float speed)
     {
         float x = transform.position.x + facing * speed * Time.deltaTime;
-        x = Mathf.Clamp(x, start.x - leash, start.x + leash);
+        x = Mathf.Clamp(x, start.x - stats.leash, start.x + stats.leash);
         transform.position = new Vector3(x, transform.position.y, transform.position.z);
     }
 
     void DoPatrol()
     {
-        Move(patrolSpeed);
-        if (transform.position.x > start.x + patrolDistance) Face(-1);
-        if (transform.position.x < start.x - patrolDistance) Face(1);
+        Move(stats.patrolSpeed);
+        if (transform.position.x > start.x + stats.patrolDistance) Face(-1);
+        if (transform.position.x < start.x - stats.patrolDistance) Face(1);
         if (CanSeePlayer()) state = State.Chase;
     }
 
@@ -66,13 +54,13 @@ public class PatrollerEnemy : EnemyBase
 
         float dx = player.position.x - transform.position.x;
         Face(dx > 0 ? 1 : -1);
-        Move(chaseSpeed);
+        Move(stats.chaseSpeed);
 
-        if (Mathf.Abs(dx) <= attackRange)
+        if (Mathf.Abs(dx) <= stats.attackRange)
         {
             state = State.Windup;
-            timer = windupTime;
-            Flash(new Color(0.35f, 0.35f, 0.35f));            
+            timer = stats.windupTime;
+            Flash(new Color(0.35f, 0.35f, 0.35f));
         }
     }
 
@@ -84,11 +72,11 @@ public class PatrollerEnemy : EnemyBase
         Flash(Color.white);
         float dx = Mathf.Abs(player.position.x - transform.position.x);
         float dy = Mathf.Abs(player.position.y - transform.position.y);
-        if (dx <= attackRange && dy < 1f && playerHealth != null)
-            playerHealth.TakeDamage(damage);
+        if (dx <= stats.attackRange && dy < stats.hitHeight && playerHealth != null)
+            playerHealth.TakeDamage(stats.damage);
 
         state = State.Cooldown;
-        timer = cooldownTime;
+        timer = stats.cooldownTime;
     }
 
     void DoCooldown()

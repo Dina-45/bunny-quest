@@ -3,9 +3,9 @@ using UnityEngine;
 public abstract class EnemyBase : MonoBehaviour
 {
     [Header("Vision")]
-    public float sightRange = 6f;
-    [Range(10, 180)] public float sightAngle = 120f;
     public LayerMask obstacleMask;
+
+    protected abstract EnemyStats BaseStats { get; }
 
     protected Transform player;
     protected Health playerHealth;
@@ -15,6 +15,13 @@ public abstract class EnemyBase : MonoBehaviour
 
     protected virtual void Start()
     {
+        if (BaseStats == null)
+        {
+            Debug.LogError("Stats missing on " + name, this);
+            enabled = false;
+            return;
+        }
+
         GameObject p = GameObject.FindGameObjectWithTag("Player");
         if (p != null)
         {
@@ -28,23 +35,23 @@ public abstract class EnemyBase : MonoBehaviour
     protected bool CanSeePlayer()
     {
         if (player == null) return false;
-        if (!sr.isVisible) return false;                    // за экраном не реагирует
+        if (!sr.isVisible) return false;                         // за экраном не реагирует
 
         Vector2 toPlayer = player.position - transform.position;
-        if (toPlayer.magnitude > sightRange) return false;  // слишком далеко
+        if (toPlayer.magnitude > BaseStats.sightRange) return false;   // слишком далеко
 
         float angle = Vector2.Angle(new Vector2(facing, 0), toPlayer);
-        if (angle > sightAngle / 2f) return false;          // не в поле зрения
+        if (angle > BaseStats.sightAngle / 2f) return false;           // не в поле зрения
 
         RaycastHit2D hit = Physics2D.Raycast(
             transform.position, toPlayer.normalized, toPlayer.magnitude, obstacleMask);
-        return hit.collider == null;                        // стена между ними: не видит
+        return hit.collider == null;                             // стена между ними: не видит
     }
 
     protected void Face(int dir)
     {
         facing = dir;
-        sr.flipX = dir < 0;     // если враг смотрит не туда, поменяй знак на dir > 0
+        sr.flipX = dir < 0;
     }
 
     protected void Flash(Color c) { sr.color = c; }
