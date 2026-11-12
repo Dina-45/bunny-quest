@@ -808,7 +808,7 @@ SpriteRenderer:
   m_Size: {x: 5.68, y: 4.3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
 --- !u!4 &517475868
@@ -1048,6 +1048,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
   target: {fileID: 951239175}
   smooth: 10
+  verticalDeadZone: 1.5
+  maxHeightAbove: 6
 --- !u!1 &551462662
 GameObject:
   m_ObjectHideFlags: 0
@@ -1717,33 +1719,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8267656308030961421, guid: f08a75ba57a82410caeda5bc5462e716, type: 3}
   m_PrefabInstance: {fileID: 7529132077455144173}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1119837730}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 605667f9d864a4c068989313fc9529ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
---- !u!1 &1119837730 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5245812750873905329, guid: f08a75ba57a82410caeda5bc5462e716, type: 3}
-  m_PrefabInstance: {fileID: 7529132077455144173}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1119837738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1119837730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a27744787eb949ac8e8228a662141da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Shooter
-  bulletPrefab: {fileID: 5605744164716446551, guid: be7190ba8a5154ecba956319ffcbcd70, type: 3}
-  shootClip: {fileID: 8300000, guid: 8aa751ac604d74409bd9d2bdb0aeaa41, type: 3}
-  cooldown: 0.4
-  spawnOffset: 0.6
 --- !u!1 &1473584153
 GameObject:
   m_ObjectHideFlags: 0
@@ -2240,10 +2221,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5245812750873905329, guid: f08a75ba57a82410caeda5bc5462e716, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1119837738}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f08a75ba57a82410caeda5bc5462e716, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

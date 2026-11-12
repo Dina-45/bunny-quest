@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8267656308030961421}
   - component: {fileID: 8439150336208795840}
   - component: {fileID: 4400571419695573844}
+  - component: {fileID: 252603878221130932}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -205,8 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74a79a53fbf5648569fcf3334db35943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  speed: 5
-  jumpForce: 12
+  stats: {fileID: 11400000, guid: 33a642aa2a0b14a42b0d274ccc63eff8, type: 2}
   jumpClip: {fileID: 8300000, guid: 4ffd852db04b640dc9ec2bd4f6235719, type: 3}
 --- !u!114 &8267656308030961421
 MonoBehaviour:
@@ -220,10 +220,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 605667f9d864a4c068989313fc9529ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  maxHp: 3
-  hp: 3
+  stats: {fileID: 11400000, guid: 33a642aa2a0b14a42b0d274ccc63eff8, type: 2}
   hurtClip: {fileID: 8300000, guid: 96f3ddb209f79489b978dc8b8a592f2d, type: 3}
   healClip: {fileID: 8300000, guid: ec5721512ccc843b4b3cbcf2a5c370c3, type: 3}
+  maxHp: 3
+  hp: 3
 --- !u!82 &8439150336208795840
 AudioSource:
   m_ObjectHideFlags: 0
@@ -343,3 +344,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &252603878221130932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5245812750873905329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a27744787eb949ac8e8228a662141da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Shooter
+  stats: {fileID: 11400000, guid: 33a642aa2a0b14a42b0d274ccc63eff8, type: 2}
+  bulletPrefab: {fileID: 5605744164716446551, guid: be7190ba8a5154ecba956319ffcbcd70, type: 3}
+  shootClip: {fileID: 8300000, guid: 2f78d04849d1a4cd18a5b03e1db533d5, type: 3}
