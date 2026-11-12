@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 439072d8e106b4e5c98f882c12ed6273, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
-  moveSpeed: 12
+  moveSpeed: 5
   jumpForce: 9
   maxHealth: 3
+  invincibilityFlashes: 10
+  flashInterval: 0.2
   shootCooldown: 0.4
   spawnOffset: 0.6
   bulletSpeed: 5
