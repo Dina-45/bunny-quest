@@ -2,10 +2,9 @@ using UnityEngine;
 
 public class Shooter : MonoBehaviour
 {
+    public PlayerStats stats;
     public GameObject bulletPrefab;
     public AudioClip shootClip;
-    public float cooldown = 0.4f;
-    public float spawnOffset = 0.6f;
 
     float nextFireTime;
     SpriteRenderer sr;
@@ -18,13 +17,17 @@ public class Shooter : MonoBehaviour
     void OnFire()
     {
         if (Time.time < nextFireTime) return;
-        nextFireTime = Time.time + cooldown;
+        nextFireTime = Time.time + stats.shootCooldown;
 
         float dir = sr.flipX ? -1f : 1f;
-        Vector3 pos = transform.position + new Vector3(dir * spawnOffset, 0f, 0f);
+        Vector3 pos = transform.position + new Vector3(dir * stats.spawnOffset, 0f, 0f);
 
         GameObject b = Instantiate(bulletPrefab, pos, Quaternion.identity);
-        b.GetComponent<Bullet>().direction = dir;
+        Bullet bullet = b.GetComponent<Bullet>();
+        bullet.direction = dir;
+        bullet.speed = stats.bulletSpeed;
+        bullet.lifetime = stats.bulletLifetime;
+        bullet.damage = stats.bulletDamage;
 
         if (shootClip != null)
             AudioSource.PlayClipAtPoint(shootClip, transform.position, 0.6f);

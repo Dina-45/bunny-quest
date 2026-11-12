@@ -3470,10 +3470,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a27744787eb949ac8e8228a662141da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shooter
+  stats: {fileID: 11400000, guid: 33a642aa2a0b14a42b0d274ccc63eff8, type: 2}
   bulletPrefab: {fileID: 5605744164716446551, guid: be7190ba8a5154ecba956319ffcbcd70, type: 3}
   shootClip: {fileID: 8300000, guid: 2f78d04849d1a4cd18a5b03e1db533d5, type: 3}
-  cooldown: 0.4
-  spawnOffset: 0.6
 --- !u!1 &1115907803
 GameObject:
   m_ObjectHideFlags: 0
