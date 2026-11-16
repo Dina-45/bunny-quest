@@ -144,3 +144,4 @@ Thumbs.db
 
 # VS Code settings
 .vscode/
+mono_crash*
