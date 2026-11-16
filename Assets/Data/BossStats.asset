@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acc8e04b6bbde456f9743b5ff8d41aa4, type: 3}
+  m_Name: BossStats
+  m_EditorClassIdentifier: Assembly-CSharp::BossStats
+  maxHp: 6
+  phase2HealthFraction: 0.5
+  startDelay: 2
+  hitFlashTime: 0.1
+  deathDelay: 1.5
+  fireballDamage: 1
+  fireballLifetime: 6
+  arenaTopY: 6
+  rainFallSpeed: 5
+  rainColumnSpacing: 3
+  rainWarningTime: 1
+  p1FanCount: 3
+  p1FanStep: 15
+  p1FanSpeed: 5
+  p1PauseAfterFan: 2.5
+  p1RainColumns: 1
+  p1PauseAfterRain: 2.5
+  p2Volleys: 3
+  p2FanCount: 7
+  p2FanStep: 20
+  p2FanSpeed: 7
+  p2PauseBetweenVolleys: 0.4
+  p2RainColumns: 3
+  p2PauseAfterRain: 1.2
