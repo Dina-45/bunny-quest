@@ -130,9 +130,10 @@ public class BossController : MonoBehaviour
 
     IEnumerator Die()
     {
-        dead = true;
-        if (winClip != null) AudioSource.PlayClipAtPoint(winClip, transform.position);
-        yield return new WaitForSeconds(stats.deathDelay);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+           dead = true;
+           ProgressTracker.CompleteLevel(0);   
+    if (winClip != null) AudioSource.PlayClipAtPoint(winClip, transform.position);
+    yield return new WaitForSeconds(stats.deathDelay);
+           SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
