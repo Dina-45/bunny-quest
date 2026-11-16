@@ -1156,9 +1156,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d82ff2e43f5c41e0a142aa47304c17c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  items: {fileID: 11400000, guid: 9339155f52968477e9920f942cda25ef, type: 2}
   coinText: {fileID: 0}
   totalCoins: 4
   coins: 0
+  score: 0
 --- !u!4 &624058231
 Transform:
   m_ObjectHideFlags: 0
@@ -1337,7 +1339,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b9f0e79049a4b44a47e711d0fd4893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spikes
-  damage: 1
 --- !u!61 &683263558
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2009,6 +2010,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LevelExit
   winClip: {fileID: 0}
   nextSceneName: 
+  unlocksLevel: 0
 --- !u!1 &1291891312
 GameObject:
   m_ObjectHideFlags: 0
@@ -2392,7 +2394,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b9f0e79049a4b44a47e711d0fd4893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spikes
-  damage: 1
 --- !u!1 &1467471808
 GameObject:
   m_ObjectHideFlags: 0

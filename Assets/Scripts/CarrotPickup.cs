@@ -9,7 +9,7 @@ public class CarrotPickup : MonoBehaviour
         Health h = other.GetComponent<Health>();
         if (h == null) return;
 
-        h.Heal(1);            
-        Destroy(gameObject);  
+        h.Heal(GameManager.Instance.items.carrotHeal);
+        Destroy(gameObject);
     }
 }

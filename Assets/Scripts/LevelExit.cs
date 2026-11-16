@@ -6,6 +6,7 @@ public class LevelExit : MonoBehaviour
 {
     public AudioClip winClip;
     public string nextSceneName = "";   // пусто = следующая сцена по номеру
+    public int unlocksLevel;            // какой уровень открыть (0 = никакой)
 
     bool isExiting;
 
@@ -17,6 +18,7 @@ public class LevelExit : MonoBehaviour
         if (GameManager.Instance.coins >= GameManager.Instance.totalCoins)
         {
             isExiting = true;
+            ProgressTracker.CompleteLevel(unlocksLevel);   // сохраняем до звука победы
             StartCoroutine(WinAndLoadNextLevel());
         }
     }

@@ -453,7 +453,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b9f0e79049a4b44a47e711d0fd4893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spikes
-  damage: 1
 --- !u!114 &102479903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -466,7 +465,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b9f0e79049a4b44a47e711d0fd4893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spikes
-  damage: 1
 --- !u!212 &102479904
 SpriteRenderer:
   serializedVersion: 3
@@ -1487,7 +1485,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b9f0e79049a4b44a47e711d0fd4893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spikes
-  damage: 1
 --- !u!114 &471240535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1500,7 +1497,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b9f0e79049a4b44a47e711d0fd4893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spikes
-  damage: 1
 --- !u!212 &471240536
 SpriteRenderer:
   serializedVersion: 3
@@ -2600,9 +2596,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d82ff2e43f5c41e0a142aa47304c17c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  items: {fileID: 11400000, guid: 9339155f52968477e9920f942cda25ef, type: 2}
   coinText: {fileID: 1561214785}
   totalCoins: 4
   coins: 0
+  score: 0
 --- !u!4 &624058231
 Transform:
   m_ObjectHideFlags: 0
@@ -3710,7 +3708,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelExit
   winClip: {fileID: 0}
-  nextSceneName: Win
+  nextSceneName: 
+  unlocksLevel: 2
 --- !u!1 &1237706067
 GameObject:
   m_ObjectHideFlags: 0
@@ -3921,7 +3920,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b9f0e79049a4b44a47e711d0fd4893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spikes
-  damage: 1
 --- !u!114 &1305651025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3934,7 +3932,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b9f0e79049a4b44a47e711d0fd4893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spikes
-  damage: 1
 --- !u!212 &1305651026
 SpriteRenderer:
   serializedVersion: 3
@@ -4793,7 +4790,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b9f0e79049a4b44a47e711d0fd4893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spikes
-  damage: 1
 --- !u!114 &1844747989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4806,7 +4802,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b9f0e79049a4b44a47e711d0fd4893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spikes
-  damage: 1
 --- !u!212 &1844747990
 SpriteRenderer:
   serializedVersion: 3
