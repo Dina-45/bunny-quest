@@ -24,3 +24,5 @@ Assignment 10 (three enemy types). I lead, the AI helps. AI chat used: Claude. I
 - 2026-11-16  Assignment requires saving in OnApplicationPause(true), my code only saved after a level. Added AppSaveHook: it creates itself before the first scene with RuntimeInitializeOnLoadMethod, survives scene changes and saves on pause and on quit.
 - 2026-11-16  musicVol was in SaveData but nothing used it, so the settings test was impossible. Added SettingsPanel with a volume slider in MainMenu: it saves on every change and sets AudioListener.volume.
 - 2026-11-18  Added a Reset progress button in the settings window with an in-game YES/NO confirm panel. Changed SaveSystem.ResetProgress to keep musicVol, because reset should clear progress, not the player's settings.
+- - 2026-11-18  PLAY loaded Level1 by build index and ignored the save. Added a level select window: buttons read levelNumber and sceneName from LevelData, locks come from the unlocked list in save.json.
+- 2026-11-18  Win scene had a GameManager with an empty LevelData, so the console showed an error. Removed it, the Win scene does not need it.

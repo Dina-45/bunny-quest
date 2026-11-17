@@ -649,7 +649,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &189628967
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2597,8 +2597,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   items: {fileID: 11400000, guid: 9339155f52968477e9920f942cda25ef, type: 2}
+  level: {fileID: 11400000, guid: 296e703a3bcd44b1c90a2410bd352a9d, type: 2}
   coinText: {fileID: 1561214785}
-  totalCoins: 4
   coins: 0
   score: 0
 --- !u!4 &624058231
@@ -3708,8 +3708,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelExit
   winClip: {fileID: 0}
-  nextSceneName: 
-  unlocksLevel: 2
 --- !u!1 &1237706067
 GameObject:
   m_ObjectHideFlags: 0
