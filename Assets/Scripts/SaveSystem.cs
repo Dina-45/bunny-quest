@@ -58,7 +58,9 @@ public static class SaveSystem
 
     public static void ResetProgress()
     {
+        float vol = Data.musicVol;
         data = new SaveData();
+        data.musicVol = vol;
         Save();
     }
 

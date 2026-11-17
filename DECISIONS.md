@@ -23,3 +23,4 @@ Assignment 10 (three enemy types). I lead, the AI helps. AI chat used: Claude. I
 - Level numbers (coins, unlocked level, next scene) moved from scene objects into LevelData assets Level_01..03, so one script can load any level from data.
 - 2026-11-16  Assignment requires saving in OnApplicationPause(true), my code only saved after a level. Added AppSaveHook: it creates itself before the first scene with RuntimeInitializeOnLoadMethod, survives scene changes and saves on pause and on quit.
 - 2026-11-16  musicVol was in SaveData but nothing used it, so the settings test was impossible. Added SettingsPanel with a volume slider in MainMenu: it saves on every change and sets AudioListener.volume.
+- 2026-11-18  Added a Reset progress button in the settings window with an in-game YES/NO confirm panel. Changed SaveSystem.ResetProgress to keep musicVol, because reset should clear progress, not the player's settings.
