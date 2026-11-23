@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class LevelExit : MonoBehaviour
 {
-    public AudioClip winClip;
 
     bool isExiting;
 
@@ -25,15 +24,7 @@ public class LevelExit : MonoBehaviour
 
     IEnumerator WinAndLoadNextLevel()
     {
-        if (winClip != null)
-        {
-            GameObject audioObject = new GameObject("WinSound");
-            AudioSource source = audioObject.AddComponent<AudioSource>();
-            source.clip = winClip;
-            source.Play();
-            yield return new WaitForSeconds(winClip.length);
-            Destroy(audioObject);
-        }
+        yield return new WaitForSeconds(SoundManager.Play(Sfx.Win));
 
         LevelData level = GameManager.Instance.level;
         if (level != null && !string.IsNullOrEmpty(level.nextSceneName))

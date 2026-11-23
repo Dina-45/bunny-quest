@@ -1,0 +1,1 @@
+public enum Sfx { Click, Jump, Hit, Pickup, Heal, Windup, Shoot, Win, Lose }

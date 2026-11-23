@@ -4,7 +4,7 @@ public class Shooter : MonoBehaviour
 {
     public PlayerStats stats;
     public GameObject bulletPrefab;
-    public AudioClip shootClip;
+
 
     float nextFireTime;
     SpriteRenderer sr;
@@ -29,7 +29,6 @@ public class Shooter : MonoBehaviour
         bullet.lifetime = stats.bulletLifetime;
         bullet.damage = stats.bulletDamage;
 
-        if (shootClip != null)
-            AudioSource.PlayClipAtPoint(shootClip, transform.position, 0.6f);
+        SoundManager.Play(Sfx.Shoot);
     }
 }

@@ -9,7 +9,7 @@ public class ShooterEnemy : EnemyBase
     protected override EnemyStats BaseStats => stats;
 
     public GameObject fireballPrefab;
-    public AudioClip shootClip;
+
 
     Vector3 start;
     float timer;
@@ -99,7 +99,6 @@ public class ShooterEnemy : EnemyBase
         fb.lifetime = stats.fireballLifetime;
         fb.damage = stats.damage;
 
-        if (shootClip != null)
-            AudioSource.PlayClipAtPoint(shootClip, transform.position, 0.6f);
+        SoundManager.Play(Sfx.Shoot);
     }
 }

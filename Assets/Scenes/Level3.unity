@@ -1107,8 +1107,6 @@ MonoBehaviour:
   fireballPrefab: {fileID: 5125707379141082606, guid: d277cb4eab6a2496b9e3cb863d8f825d, type: 3}
   warningPrefab: {fileID: 6019851118676417687, guid: cb46e3a91cbf0412b95563b822cd1531, type: 3}
   player: {fileID: 5202344535743489085, guid: f08a75ba57a82410caeda5bc5462e716, type: 3}
-  hitClip: {fileID: 8300000, guid: 2f78d04849d1a4cd18a5b03e1db533d5, type: 3}
-  winClip: {fileID: 8300000, guid: 776a858dc6e034403b53a313fae0c942, type: 3}
 --- !u!61 &517475870
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3069,7 +3067,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8439150336208795840, guid: f08a75ba57a82410caeda5bc5462e716, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

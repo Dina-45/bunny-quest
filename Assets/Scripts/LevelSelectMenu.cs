@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-// Окно выбора уровня. Открытые/закрытые уровни берутся из save.json, сцена — из LevelData.
+
 public class LevelSelectMenu : MonoBehaviour
 {
     [System.Serializable]

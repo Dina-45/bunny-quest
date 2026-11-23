@@ -10,7 +10,6 @@ public class BossController : MonoBehaviour
     public Slider hpBar;
     public GameObject fireballPrefab, warningPrefab;
     public Transform player;
-    public AudioClip hitClip, winClip;
 
     static readonly Color HitColor = new Color(1f, 0.5f, 0.5f, 1f);
 
@@ -49,8 +48,7 @@ public class BossController : MonoBehaviour
         hp = Mathf.Max(0, hp - dmg);
         hpBar.value = hp;
 
-        if (hitClip != null)
-            AudioSource.PlayClipAtPoint(hitClip, transform.position);
+        SoundManager.Play(Sfx.Hit);
 
         StartCoroutine(Flash());
 
@@ -188,8 +186,7 @@ public class BossController : MonoBehaviour
 
         ProgressTracker.CompleteLevel(0);
 
-        if (winClip != null)
-            AudioSource.PlayClipAtPoint(winClip, transform.position);
+        SoundManager.Play(Sfx.Win);
 
         yield return new WaitForSeconds(stats.deathDelay);
 

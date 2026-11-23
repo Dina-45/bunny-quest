@@ -29,8 +29,7 @@ public class PlayerController : MonoBehaviour
         if (!isGrounded) return;
 
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, stats.jumpForce);
-        if (jumpClip != null)
-            AudioSource.PlayClipAtPoint(jumpClip, transform.position);
+        SoundManager.Play(Sfx.Jump);
     }
 
     void FixedUpdate()

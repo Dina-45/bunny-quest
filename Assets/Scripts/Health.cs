@@ -5,15 +5,12 @@ using UnityEngine.SceneManagement;
 public class Health : MonoBehaviour
 {
     public PlayerStats stats;
-    public AudioClip hurtClip;
-    public AudioClip healClip;
 
     [HideInInspector] public int maxHp;
     [HideInInspector] public int hp;
 
     bool invincible;
     Renderer[] renderers;
-    AudioSource src;
 
     void Awake()
     {
@@ -29,7 +26,6 @@ public class Health : MonoBehaviour
     void Start()
     {
         renderers = GetComponentsInChildren<Renderer>();
-        src = GetComponent<AudioSource>();
     }
 
     public void TakeDamage(int dmg)
@@ -37,7 +33,7 @@ public class Health : MonoBehaviour
         if (invincible) return;
         hp -= dmg;
         Debug.Log("HP: " + hp);
-        if (src != null && hurtClip != null) src.PlayOneShot(hurtClip);
+        SoundManager.Play(Sfx.Hit);
         if (hp <= 0) { GameOver(); return; }
         StartCoroutine(Invincibility());
     }
@@ -46,7 +42,7 @@ public class Health : MonoBehaviour
     {
         hp = Mathf.Min(hp + amount, maxHp);
         Debug.Log("HP: " + hp);
-        if (src != null && healClip != null) src.PlayOneShot(healClip);
+        SoundManager.Play(Sfx.Heal);
     }
 
     IEnumerator Invincibility()
@@ -63,6 +59,7 @@ public class Health : MonoBehaviour
 
     void GameOver()
     {
+        SoundManager.Play(Sfx.Lose);   // AudioManager живёт между сценами, звук доиграет после перезагрузки
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
