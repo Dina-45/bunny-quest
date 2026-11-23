@@ -26,3 +26,4 @@ Assignment 10 (three enemy types). I lead, the AI helps. AI chat used: Claude. I
 - 2026-11-18  Added a Reset progress button in the settings window with an in-game YES/NO confirm panel. Changed SaveSystem.ResetProgress to keep musicVol, because reset should clear progress, not the player's settings.
 - - 2026-11-18  PLAY loaded Level1 by build index and ignored the save. Added a level select window: buttons read levelNumber and sceneName from LevelData, locks come from the unlocked list in save.json.
 - 2026-11-18  Win scene had a GameManager with an empty LevelData, so the console showed an error. Removed it, the Win scene does not need it.
+- 2026-11-23  Music had to survive scene loads. Put MusicManager on the DontDestroyOnLoad AudioManager with two AudioSources and a 1 s crossfade; the same clip is not restarted, so Level1 -> Level2 and a death restart keep the music going.

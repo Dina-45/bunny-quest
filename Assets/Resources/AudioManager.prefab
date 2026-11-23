@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 66668320277714928}
   - component: {fileID: 7922921287835433470}
+  - component: {fileID: 6115412931228163790}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -46,3 +47,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SoundManager
   library: {fileID: 11400000, guid: 5ec4ce187f8a54173a0cc2b3301cb838, type: 2}
   sfxGroup: {fileID: -6785855983469125900, guid: c8b3326cfa3c244c29286d5e1829a90a, type: 2}
+--- !u!114 &6115412931228163790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563441141143640852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f63f5dd48aa34d52973cbcee44a5b62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MusicManager
+  menuMusic: {fileID: 8300000, guid: f4bcb6863682040f893743f6a241c05b, type: 3}
+  levelMusic: {fileID: 8300000, guid: 1b18b447ec1c54cb1867612e6f9a8a98, type: 3}
+  musicGroup: {fileID: 5881529923547657974, guid: c8b3326cfa3c244c29286d5e1829a90a, type: 2}
+  fadeTime: 1
+  menuScenes:
+  - MainMenu
+  - Win
