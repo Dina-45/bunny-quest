@@ -41,6 +41,8 @@ public static class SaveSystem
         if (data.unlocked == null) data.unlocked = new System.Collections.Generic.List<int>();
         if (!data.unlocked.Contains(1)) data.unlocked.Add(1);
         data.musicVol = Mathf.Clamp01(data.musicVol);
+        if (data.version < 2) { data.sfxVol = 1f; data.version = 2; }
+        data.sfxVol = Mathf.Clamp01(data.sfxVol);
     }
 
     public static void Save()

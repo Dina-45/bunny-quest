@@ -14,7 +14,7 @@ public class AppSaveHook : MonoBehaviour
     void Awake()
     {
         SaveSystem.Load();
-        AudioListener.volume = SaveSystem.Data.musicVol;
+
     }
 
     void OnApplicationPause(bool paused)

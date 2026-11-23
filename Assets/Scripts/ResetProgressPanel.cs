@@ -1,6 +1,5 @@
 using UnityEngine;
 
-// Кнопка RESET открывает вопрос "Reset all progress?" с кнопками YES / NO.
 public class ResetProgressPanel : MonoBehaviour
 {
     public GameObject confirmPanel;
