@@ -126,6 +126,8 @@ public class BossController : MonoBehaviour
     {
         if (player == null) yield break;
 
+        SoundManager.Play(Sfx.Shoot);
+
         Vector2 toPlayer = (player.position - transform.position).normalized;
         float baseAngle = Mathf.Atan2(toPlayer.y, toPlayer.x) * Mathf.Rad2Deg;
 
@@ -158,6 +160,8 @@ public class BossController : MonoBehaviour
                 Quaternion.identity
             );
         }
+
+        SoundManager.Play(Sfx.Windup);
 
         yield return new WaitForSeconds(stats.rainWarningTime);
 
