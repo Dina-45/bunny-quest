@@ -2643,6 +2643,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
   pausePanel: {fileID: 189628966}
   menuSceneName: MainMenu
+  normalSnapshot: {fileID: 24500006, guid: c8b3326cfa3c244c29286d5e1829a90a, type: 2}
+  pausedSnapshot: {fileID: 5706963131891786351, guid: c8b3326cfa3c244c29286d5e1829a90a, type: 2}
+  snapshotFade: 0.3
 --- !u!1 &636751437 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8598882930533373595, guid: 62503f0944c9b41f99466923d1f816c9, type: 3}
