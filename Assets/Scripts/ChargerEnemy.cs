@@ -42,10 +42,11 @@ public class ChargerEnemy : EnemyBase
 
         if (CanSeePlayer())
         {
-            chargeDir = ((Vector2)(player.position - transform.position)).normalized;
-            state = State.Windup;
-            timer = stats.windupTime;
-            Flash(Color.red);
+             chargeDir = ((Vector2)(player.position - transform.position)).normalized;
+             state = State.Windup;
+             timer = stats.windupTime;
+             Flash(Color.red);
+             SoundManager.Play(Sfx.Windup);
         }
     }
 

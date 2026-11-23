@@ -61,6 +61,7 @@ public class PatrollerEnemy : EnemyBase
             state = State.Windup;
             timer = stats.windupTime;
             Flash(new Color(0.35f, 0.35f, 0.35f));
+            SoundManager.Play(Sfx.Windup);
         }
     }
 

@@ -58,6 +58,7 @@ public class ShooterEnemy : EnemyBase
             state = State.Aim;
             timer = stats.aimTime;
             Flash(Color.red);
+            SoundManager.Play(Sfx.Windup);
         }
     }
 

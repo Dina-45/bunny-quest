@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public PlayerStats stats;
-    public AudioClip jumpClip;
+    
 
     Rigidbody2D rb;
     SpriteRenderer sr;
