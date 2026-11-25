@@ -13,7 +13,17 @@ MonoBehaviour:
   m_Name: JuiceSettings
   m_EditorClassIdentifier: Assembly-CSharp::JuiceSettings
   effectsOn: 1
-  particles: []
+  particles:
+  - id: 0
+    prefab: {fileID: 3034930191868114114, guid: f8901032969f4491bb4f3b361807e6c4, type: 3}
+  - id: 1
+    prefab: {fileID: 3034930191868114114, guid: d445131f702fe44bd8a8b88746ca06ce, type: 3}
+  - id: 2
+    prefab: {fileID: 3034930191868114114, guid: 8c55440c365454e4dbfd13b93f839090, type: 3}
+  - id: 3
+    prefab: {fileID: 3034930191868114114, guid: 2a09d4776f1214ce0bd79a7c676652e5, type: 3}
+  - id: 4
+    prefab: {fileID: 3034930191868114114, guid: 7e64fbd61456146038987a2bcb5776f2, type: 3}
   hitStopTime: 0.06
   smallShakeStrength: 0.09
   smallShakeTime: 0.13
