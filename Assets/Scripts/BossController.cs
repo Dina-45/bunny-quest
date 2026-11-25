@@ -49,6 +49,8 @@ public class BossController : MonoBehaviour
         hpBar.value = hp;
 
         SoundManager.Play(Sfx.Hit);
+        FxManager.SmallShake();
+        FxManager.HitStop();
 
         StartCoroutine(Flash());
 
@@ -191,6 +193,10 @@ public class BossController : MonoBehaviour
         ProgressTracker.CompleteLevel(0);
 
         SoundManager.Play(Sfx.Win);
+
+        FxManager.Spawn(Fx.Death, transform.position);
+        FxManager.Spawn(Fx.Win, transform.position);
+        FxManager.BigShake();
 
         yield return new WaitForSeconds(stats.deathDelay);
 

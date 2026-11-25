@@ -65,7 +65,7 @@ public class MusicManager : MonoBehaviour
         float inStart = fadeIn.volume;
         float outStart = fadeOut.volume;
 
-        for (float t = 0f; t < fadeTime; t += Time.unscaledDeltaTime)   // работает и на паузе
+        for (float t = 0f; t < fadeTime; t += Time.unscaledDeltaTime)   
         {
             float k = t / fadeTime;
             fadeIn.volume = Mathf.Lerp(inStart, 1f, k);

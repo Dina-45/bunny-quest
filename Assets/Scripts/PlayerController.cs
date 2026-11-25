@@ -1,10 +1,10 @@
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
     public PlayerStats stats;
-    
 
     Rigidbody2D rb;
     SpriteRenderer sr;
@@ -45,11 +45,23 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("Ground")) isGrounded = true;
+        if (!col.gameObject.CompareTag("Ground")) return;
+
+        bool wasInAir = !isGrounded;
+        isGrounded = true;
+
+        if (wasInAir && col.relativeVelocity.y >= FxManager.LandMinSpeed)
+        {
+            Collider2D myCol = GetComponent<Collider2D>();
+            float feetY = myCol != null ? myCol.bounds.min.y : transform.position.y;
+
+            FxManager.Spawn(Fx.Land, new Vector3(transform.position.x, feetY, 0f));
+        }
     }
 
     void OnCollisionExit2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("Ground")) isGrounded = false;
+        if (col.gameObject.CompareTag("Ground"))
+            isGrounded = false;
     }
 }

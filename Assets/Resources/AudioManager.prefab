@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 66668320277714928}
   - component: {fileID: 7922921287835433470}
   - component: {fileID: 6115412931228163790}
+  - component: {fileID: 5104345310768422735}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -66,3 +67,16 @@ MonoBehaviour:
   menuScenes:
   - MainMenu
   - Win
+--- !u!114 &5104345310768422735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563441141143640852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e774097ffd82a4ceb8445e10c4f21d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FxManager
+  settings: {fileID: 11400000, guid: 731bb02a512704547bdaa8497eca9854, type: 2}

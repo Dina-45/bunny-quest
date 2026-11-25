@@ -36,3 +36,6 @@ I lead, the AI helps. AI chat used: Claude. I test everything in Unity and on my
 - 2026-11-23  One slider changed AudioListener.volume for everything. Made two sliders (Music, SFX) that set the mixer exposed parameters in dB with Log10 x 20; a linear value made 50% sound almost silent. Added sfxVol and save version 2 so old saves get a default.
 - 2026-11-23  The agent put Start() between [RuntimeInitializeOnLoadMethod] and Create() when I pasted the code, so the attribute moved to the wrong method. I put Create() back right under the attribute.
 - 2026-11-23  Pause only stopped time. Added Normal and Paused snapshots (MusicBed -10 dB, lowpass 800 Hz). MusicBed is a child of Music, so the Music slider and the snapshot do not fight over one volume. Mixer Update Mode is Unscaled Time, otherwise the transition never finishes with timeScale = 0.
+## Week 14 (Assignment 13)
+- 2026-11-25  Landing code threw a NullReferenceException before isGrounded = true, so the bunny could not jump. Moved isGrounded = true to the top and made JuiceSettings.Get null-safe.
+- 2026-11-25  With hit stop 0.05 s and shake 0.08 I could not see if they work. Tested with 0.3 s / 0.5, then returned to small values so the effect is felt, not annoying.

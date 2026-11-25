@@ -8,6 +8,7 @@ public class Coin : MonoBehaviour
         if (!other.CompareTag("Player")) return;
         GameManager.Instance.AddCoin();
         SoundManager.Play(Sfx.Pickup);
+        FxManager.Spawn(Fx.Pickup, transform.position);
         Destroy(gameObject);
     }
 }

@@ -1,0 +1,1 @@
+public enum Fx { Hit, Pickup, Death, Land, Win }

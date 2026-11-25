@@ -17,7 +17,8 @@ public class LevelExit : MonoBehaviour
         {
             isExiting = true;
             int unlocks = gm.level != null ? gm.level.unlocksLevel : 0;
-            ProgressTracker.CompleteLevel(unlocks);   // сохраняем до звука победы
+            ProgressTracker.CompleteLevel(unlocks);
+            FxManager.Spawn(Fx.Win, transform.position);
             StartCoroutine(WinAndLoadNextLevel());
         }
     }

@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -16,15 +17,19 @@ public class Bullet : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         BossController boss = other.GetComponentInParent<BossController>();
+
         if (boss != null)
         {
             boss.TakeDamage(damage);
+            FxManager.Spawn(Fx.Hit, transform.position);
             Destroy(gameObject);
             return;
         }
 
         if (other.CompareTag("Enemy"))
         {
+            FxManager.Spawn(Fx.Death, other.transform.position);
+            FxManager.SmallShake();
             Destroy(other.gameObject);
             Destroy(gameObject);
         }

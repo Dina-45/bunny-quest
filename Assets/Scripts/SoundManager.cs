@@ -1,8 +1,6 @@
 using UnityEngine;
 using UnityEngine.Audio;
 
-// Один на всю игру. Создаётся сам из Resources/AudioManager до первой сцены.
-// Все звуки идут через него в группу SFX микшера.
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance { get; private set; }
@@ -10,7 +8,7 @@ public class SoundManager : MonoBehaviour
     public SoundLibrary library;
     public AudioMixerGroup sfxGroup;
 
-    const int Voices = 8;                  // сколько звуков может звучать одновременно
+    const int Voices = 8;                  
     AudioSource[] sources;
     int next;
 
@@ -42,10 +40,9 @@ public class SoundManager : MonoBehaviour
 
     void Start()
     {
-        ApplyVolumes();      // в Awake микшер иногда ещё не готов, поэтому Start
+        ApplyVolumes();      
     }
 
-    // 0..1 со слайдера -> децибелы: 1 = 0 dB, 0.5 ≈ -6 dB, 0 = -80 dB (тишина)
     public static float ToDb(float v)
     {
         return Mathf.Log10(Mathf.Max(v, 0.0001f)) * 20f;
@@ -59,7 +56,6 @@ public class SoundManager : MonoBehaviour
         mixer.SetFloat("SFXVolume", ToDb(SaveSystem.Data.sfxVol));
     }
 
-    // Играет звук и возвращает его длину (нужно, чтобы дождаться конца, например win).
     public static float Play(Sfx id)
     {
         if (Instance == null || Instance.library == null) return 0f;

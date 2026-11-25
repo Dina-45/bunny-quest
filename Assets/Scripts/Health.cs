@@ -34,6 +34,9 @@ public class Health : MonoBehaviour
         hp -= dmg;
         Debug.Log("HP: " + hp);
         SoundManager.Play(Sfx.Hit);
+        FxManager.Spawn(Fx.Hit, transform.position);
+        FxManager.SmallShake();
+        FxManager.HitStop();
         if (hp <= 0) { GameOver(); return; }
         StartCoroutine(Invincibility());
     }
@@ -43,6 +46,7 @@ public class Health : MonoBehaviour
         hp = Mathf.Min(hp + amount, maxHp);
         Debug.Log("HP: " + hp);
         SoundManager.Play(Sfx.Heal);
+        FxManager.Spawn(Fx.Pickup, transform.position);
     }
 
     IEnumerator Invincibility()
