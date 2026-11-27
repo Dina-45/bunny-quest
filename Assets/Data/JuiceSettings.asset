@@ -25,6 +25,7 @@ MonoBehaviour:
   - id: 4
     prefab: {fileID: 3034930191868114114, guid: 7e64fbd61456146038987a2bcb5776f2, type: 3}
   hitStopTime: 0.06
+  flashTime: 0.12
   smallShakeStrength: 0.09
   smallShakeTime: 0.13
   bigShakeStrength: 0.2
