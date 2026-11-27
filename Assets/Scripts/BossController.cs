@@ -1,3 +1,4 @@
+
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,6 +10,7 @@ public class BossController : MonoBehaviour
     public Slider hpBar;
     public GameObject fireballPrefab, warningPrefab;
     public Transform player;
+    public LayerMask groundMask;
 
     int hp;
     bool phase2, dead;
@@ -48,7 +50,7 @@ public class BossController : MonoBehaviour
         SoundManager.Play(Sfx.Hit);
         FxManager.SmallShake();
         FxManager.HitStop();
-        if (hitFlash != null) hitFlash.Flash();   // белая вспышка через Shader Graph
+        if (hitFlash != null) hitFlash.Flash();
 
         if (!phase2 && hp <= Mathf.FloorToInt(stats.maxHp * stats.phase2HealthFraction))
         {
@@ -148,6 +150,8 @@ public class BossController : MonoBehaviour
                 new Vector3(xs[i], player.position.y, 0),
                 Quaternion.identity
             );
+
+            PlaceOnGround(warns[i], xs[i]);
         }
 
         SoundManager.Play(Sfx.Windup);
@@ -169,6 +173,24 @@ public class BossController : MonoBehaviour
 
             SetupFireball(f, Vector2.down, stats.rainFallSpeed);
         }
+    }
+
+    void PlaceOnGround(GameObject warn, float x)
+    {
+        Vector2 from = new Vector2(x, stats.arenaTopY);
+
+        RaycastHit2D hit = Physics2D.Raycast(
+            from,
+            Vector2.down,
+            Mathf.Infinity,
+            groundMask
+        );
+
+        if (hit.collider == null) return;
+
+        Debug.Log("Warning ground: " + hit.collider.name + " y = " + hit.point.y);
+
+        warn.transform.position = new Vector3(x, hit.point.y, 0f);
     }
 
     IEnumerator Die()
