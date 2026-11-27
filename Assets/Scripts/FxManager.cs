@@ -1,4 +1,3 @@
-
 using System.Collections;
 using UnityEngine;
 
@@ -10,11 +9,13 @@ public class FxManager : MonoBehaviour
 
     bool hitStopping;
 
-    public static float LandMinSpeed => Instance != null && Instance.settings != null ? Instance.settings.landMinSpeed : 999f;
-
     void Awake() { Instance = this; }
 
     static bool On => Instance != null && Instance.settings != null && Instance.settings.effectsOn;
+
+    public static bool EffectsOn => On;
+    public static float FlashTime => Instance != null && Instance.settings != null ? Instance.settings.flashTime : 0.1f;
+    public static float LandMinSpeed => Instance != null && Instance.settings != null ? Instance.settings.landMinSpeed : 999f;
 
     public static void Spawn(Fx id, Vector3 position)
     {
@@ -34,11 +35,10 @@ public class FxManager : MonoBehaviour
         if (!On) return;
         CameraFollow.Shake(Instance.settings.bigShakeStrength, Instance.settings.bigShakeTime);
     }
-
     public static void HitStop()
     {
         if (!On || Instance.hitStopping) return;
-        if (PauseMenu.IsPaused || Time.timeScale == 0f) return;
+        if (PauseMenu.IsPaused || Time.timeScale == 0f) return;   
         Instance.StartCoroutine(Instance.HitStopRoutine());
     }
 
@@ -46,8 +46,8 @@ public class FxManager : MonoBehaviour
     {
         hitStopping = true;
         Time.timeScale = 0f;
-        yield return new WaitForSecondsRealtime(settings.hitStopTime);
-        if (!PauseMenu.IsPaused) Time.timeScale = 1f;
+        yield return new WaitForSecondsRealtime(settings.hitStopTime);  
+        if (!PauseMenu.IsPaused) Time.timeScale = 1f;  
         hitStopping = false;
     }
 

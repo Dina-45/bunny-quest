@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 8439150336208795840}
   - component: {fileID: 4400571419695573844}
   - component: {fileID: 252603878221130932}
+  - component: {fileID: -9021345365769606781}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -66,7 +67,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 84268d227b3ed433b9d2eeb4cca46773, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -207,7 +208,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   stats: {fileID: 11400000, guid: 33a642aa2a0b14a42b0d274ccc63eff8, type: 2}
-  jumpClip: {fileID: 8300000, guid: 4ffd852db04b640dc9ec2bd4f6235719, type: 3}
 --- !u!114 &8267656308030961421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,8 +221,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   stats: {fileID: 11400000, guid: 33a642aa2a0b14a42b0d274ccc63eff8, type: 2}
-  hurtClip: {fileID: 8300000, guid: 96f3ddb209f79489b978dc8b8a592f2d, type: 3}
-  healClip: {fileID: 8300000, guid: ec5721512ccc843b4b3cbcf2a5c370c3, type: 3}
   maxHp: 3
   hp: 3
 --- !u!82 &8439150336208795840
@@ -358,4 +356,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Shooter
   stats: {fileID: 11400000, guid: 33a642aa2a0b14a42b0d274ccc63eff8, type: 2}
   bulletPrefab: {fileID: 5605744164716446551, guid: be7190ba8a5154ecba956319ffcbcd70, type: 3}
-  shootClip: {fileID: 8300000, guid: 2f78d04849d1a4cd18a5b03e1db533d5, type: 3}
+--- !u!114 &-9021345365769606781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5245812750873905329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60839c3a3b9ca4d4bb4491c41bd1a79c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitFlash

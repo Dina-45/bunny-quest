@@ -11,6 +11,7 @@ public class Health : MonoBehaviour
 
     bool invincible;
     Renderer[] renderers;
+    HitFlash hitFlash;
 
     void Awake()
     {
@@ -19,6 +20,7 @@ public class Health : MonoBehaviour
             Debug.LogError("Health: assign PlayerStats on " + name, this);
             return;
         }
+
         maxHp = stats.maxHealth;
         hp = maxHp;
     }
@@ -26,18 +28,29 @@ public class Health : MonoBehaviour
     void Start()
     {
         renderers = GetComponentsInChildren<Renderer>();
+        hitFlash = GetComponent<HitFlash>();
     }
 
     public void TakeDamage(int dmg)
     {
         if (invincible) return;
+
         hp -= dmg;
         Debug.Log("HP: " + hp);
+
         SoundManager.Play(Sfx.Hit);
         FxManager.Spawn(Fx.Hit, transform.position);
         FxManager.SmallShake();
         FxManager.HitStop();
-        if (hp <= 0) { GameOver(); return; }
+
+        if (hitFlash != null) hitFlash.Flash();
+
+        if (hp <= 0)
+        {
+            GameOver();
+            return;
+        }
+
         StartCoroutine(Invincibility());
     }
 
@@ -45,6 +58,7 @@ public class Health : MonoBehaviour
     {
         hp = Mathf.Min(hp + amount, maxHp);
         Debug.Log("HP: " + hp);
+
         SoundManager.Play(Sfx.Heal);
         FxManager.Spawn(Fx.Pickup, transform.position);
     }
@@ -52,18 +66,27 @@ public class Health : MonoBehaviour
     IEnumerator Invincibility()
     {
         invincible = true;
+
+        yield return new WaitForSecondsRealtime(FxManager.FlashTime);
+
         for (int i = 0; i < stats.invincibilityFlashes; i++)
         {
-            foreach (var r in renderers) r.enabled = !r.enabled;
+            foreach (var r in renderers)
+                r.enabled = !r.enabled;
+
             yield return new WaitForSeconds(stats.flashInterval);
         }
-        foreach (var r in renderers) r.enabled = true;
+
+        foreach (var r in renderers)
+            r.enabled = true;
+
         invincible = false;
     }
 
     void GameOver()
     {
-        SoundManager.Play(Sfx.Lose);   // AudioManager живёт между сценами, звук доиграет после перезагрузки
+        SoundManager.Play(Sfx.Lose);
+        FxManager.Spawn(Fx.Death, transform.position);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

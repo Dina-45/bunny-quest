@@ -1,4 +1,3 @@
-
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,17 +10,15 @@ public class BossController : MonoBehaviour
     public GameObject fireballPrefab, warningPrefab;
     public Transform player;
 
-    static readonly Color HitColor = new Color(1f, 0.5f, 0.5f, 1f);
-
     int hp;
     bool phase2, dead;
-    SpriteRenderer sr;
     Animator anim;
+    HitFlash hitFlash;
 
     void Awake()
     {
-        sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        hitFlash = GetComponent<HitFlash>();
     }
 
     void Start()
@@ -51,8 +48,7 @@ public class BossController : MonoBehaviour
         SoundManager.Play(Sfx.Hit);
         FxManager.SmallShake();
         FxManager.HitStop();
-
-        StartCoroutine(Flash());
+        if (hitFlash != null) hitFlash.Flash();   // белая вспышка через Shader Graph
 
         if (!phase2 && hp <= Mathf.FloorToInt(stats.maxHp * stats.phase2HealthFraction))
         {
@@ -64,15 +60,6 @@ public class BossController : MonoBehaviour
 
         if (hp <= 0)
             StartCoroutine(Die());
-    }
-
-    IEnumerator Flash()
-    {
-        if (sr == null) yield break;
-
-        sr.color = HitColor;
-        yield return new WaitForSeconds(stats.hitFlashTime);
-        sr.color = Color.white;
     }
 
     IEnumerator AttackLoop()
@@ -193,7 +180,6 @@ public class BossController : MonoBehaviour
         ProgressTracker.CompleteLevel(0);
 
         SoundManager.Play(Sfx.Win);
-
         FxManager.Spawn(Fx.Death, transform.position);
         FxManager.Spawn(Fx.Win, transform.position);
         FxManager.BigShake();

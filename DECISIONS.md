@@ -40,3 +40,6 @@ I lead, the AI helps. AI chat used: Claude. I test everything in Unity and on my
 - 2026-11-25  Landing code threw a NullReferenceException before isGrounded = true, so the bunny could not jump. Moved isGrounded = true to the top and made JuiceSettings.Get null-safe.
 - 2026-11-25  With hit stop 0.05 s and shake 0.08 I could not see if they work. Tested with 0.3 s / 0.5, then returned to small values so the effect is felt, not annoying.
 - 2026-11-25  Win confetti was hard to see: small and flew off screen. Size 0.1-0.2 -> 0.2-0.35, speed 4-8 -> 3-6, gravity 1 -> 0.6, and it now spawns one unit above the bunny instead of at the exit.
+- 2026-11-27  Hit flash: Sprite Lit Shader Graph with _FlashAmount (Lerp to white), set through a MaterialPropertyBlock, not a new material per hit. Replaced the boss red tint with it.
+- 2026-11-27  The bunny's white flash was invisible: the invincibility blink turned the sprite off on the same frame. Invincibility now waits FlashTime before blinking.
+- 2026-11-27  Boss was invisible in Play: Boss_Phase1_Idle and Boss_Phase2_Idle still pointed to missing sprites. Re-added the boss sprites to both clips.
